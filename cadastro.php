@@ -23,6 +23,9 @@
                         <form action="cadastrar.php" method="POST" id="temp">
                             <div class="field">
                                 <div class="control">
+                                    <span style="display: none" id="spanome">
+                                        Preencha o Campo Nome
+                                    </span>
                                     <input required name="nome" type="text" class="input is-large" placeholder="Nome" id="nome" autocomplete="off" autofocus>
                                 </div>
                             </div>
@@ -96,6 +99,7 @@
         $.each(model, function(i, item) {
             if (item.val() == "") {
                 item.css("border-color", "red")
+                $("#spa" + item.attr(id))
             }
         })
     }

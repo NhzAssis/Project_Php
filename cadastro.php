@@ -18,30 +18,30 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="column is-4 is-offset-4">
-                    <h3 class="title has-text-grey">Sistema de Cadastro</h3>
-                      <div class="box">
+                    <h3 class="title has-text-grey"><b> Sistema Cadastro<br>de</br>Consulta</b></h3>
+                    <div class="box">
                         <form action="cadastrar.php" method="POST" id="temp">
                             <div class="field">
                                 <div class="control">
                                     <span style="display: none" id="spanome">
                                         Preencha o Campo Nome
                                     </span>
-                                    <input required name="nome" type="text" class="input is-large" placeholder="Nome" id="nome" autocomplete="off" autofocus>
+                                    <input required name="nome" type="text" class="input is-large" placeholder="Nome" id="nome" onchange="validaOnKeyUp(this)" autocomplete="off" autofocus>
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="control">
-                                    <input required name="consulta" type="text" class="input is-large" autocomplete="off" id="consulta"  placeholder="Consulta">
+                                    <input required name="consulta" type="text" class="input is-large" autocomplete="off" id="consulta" onchange="validaOnKeyUp(this)" placeholder="Consulta">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="control">
-                                    <input required name="medico" class="input is-large" id="medico" autocomplete="off" placeholder="Medico">
+                                    <input required name="medico" class="input is-large" id="medico" autocomplete="off" onchange="validaOnKeyUp(this)" placeholder="Medico">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="control">
-                                    <input required name="data" type="text" class="input is-large" id="data" autocomplete="off" placeholder="Data da Consulta">
+                                    <input required name="data" type="text" class="input is-large" id="data" autocomplete="off" onchange="validaOnKeyUp(this)" placeholder="Data da Consulta">
                                 </div>
                             </div>
                             <br>
@@ -62,7 +62,7 @@
 <script>
     function exibeMensagem() {
         if (validaForm()) {
-            Swal.fire({           
+            Swal.fire({
                 title: "Parabens!! Registrado com sucesso!!",
                 showDenyButton: false,
                 showCancelButton: false,
@@ -81,7 +81,6 @@
     function validaForm() {
         if ($("#nome").val() == "" || $("#consulta").val() == "" || $("#medico").val() == "" || $("#data").val() == "") {
             validacao()
-
             return false
         } else {
             return true
@@ -89,7 +88,7 @@
     }
 
     function validacao() {
-         var model = {
+        var model = {
             nome: $("#nome"),
             consulta: $('#consulta'),
             medico: $('#medico'),
@@ -104,13 +103,9 @@
         })
     }
 
-    function validaOnKeyUp(campo)
-    {
-        if($(campo) != "")
-        {
+    function validaOnKeyUp(campo) {
+        if ($(campo) != "") {
             $(campo).css("border-color", "")
         }
     }
-
-        
 </script>

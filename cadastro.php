@@ -98,7 +98,6 @@
         $.each(model, function(i, item) {
             if (item.val() == "") {
                 item.css("border-color", "red")
-                $("#spa" + item.attr(id))
             }
         })
     }
